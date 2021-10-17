@@ -59,15 +59,15 @@ contract HSCToken is ERC20Interface, SafeMath {
     mapping(address => uint) balances;
     mapping(address => mapping(address => uint)) allowed;
  
-    constructor() public {
-        symbol = "HSC";
+    constructor() {
+        symbol = "HSCT";
         name = "HSCToken";
         decimals = 6;
         _totalSupply = 1000000000000;
         balances[0xE7AFE8f22f66C4a7bF56ADe8285973b0A17D960a] = _totalSupply;
         emit Transfer(address(0), 0xE7AFE8f22f66C4a7bF56ADe8285973b0A17D960a, _totalSupply);
     }
- 
+
     function totalSupply() override public view returns (uint) {
         return _totalSupply  - balances[address(0)];
     }
